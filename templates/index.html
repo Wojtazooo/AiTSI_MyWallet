@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}My Flask App{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='index.css') }}"
@@ -12,7 +13,7 @@
   <body>
     <div id="navigation-panel">
       <div id="home-nav">
-        <a href="/"
+        <a href="/home"
           ><button>
             <img
               id="my-wallet-home-image"
@@ -34,11 +35,21 @@
     <div id="application-content">
       <div id="summary-panel">
         <h3>Wallet Summary</h3>
-        <!-- Your wallet summary content goes here -->
         <p>Balance: $1000</p>
-        <!-- You can display other wallet summary information here -->
       </div>
-      <div id="main-content">{% block content %}{% endblock %}</div>
+
+      <div id="main-content"></div>
+
+      <script>
+        $(document).ready(function () {
+          $("#main-content").load("/home");
+          $("a").on("click", function (e) {
+            e.preventDefault();
+            var page = $(this).attr("href");
+            $("#main-content").load(page);
+          });
+        });
+      </script>
     </div>
   </body>
 </html>

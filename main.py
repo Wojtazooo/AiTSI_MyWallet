@@ -1,12 +1,16 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def WelcomePage():
-    return render_template('welcome-page/welcome.html')
+def IndexPage():
+    return render_template('index.html')
 
-@app.route("/transactions")
+@app.route("/home")
+def Welcome():
+    return render_template('home-page/home.html')
+
+@app.route('/transactions')
 def TranactionsPage():
     return render_template('transactions-page/transactions.html')
 
