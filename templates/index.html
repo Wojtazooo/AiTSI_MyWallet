@@ -11,10 +11,24 @@
   </head>
   <body>
     <div id="navigation-panel">
-      <a href="/"><button>Home</button></a>
-      <a href="/wallet-summary"><button>Wallet Summary</button></a>
-      <a href="/transactions"><button>Transactions History</button></a>
-      <a href="/user-profile"><button>User Profile</button></a>
+      <div id="home-nav">
+        <a href="/"
+          ><button>
+            <img
+              id="my-wallet-home-image"
+              src="{{ url_for('static', filename='walletHome.bmp') }}"
+            /></button
+        ></a>
+      </div>
+
+      <div id="actions-nav">
+        <a href="/wallet-details"><button>Wallet Details</button></a>
+        <a href="/transactions"><button>Transactions History</button></a>
+      </div>
+
+      <div id="profile-nav">
+        <a href="/user-profile"><button>User Profile</button></a>
+      </div>
     </div>
 
     <div id="application-content">
@@ -24,7 +38,6 @@
         <p>Balance: $1000</p>
         <!-- You can display other wallet summary information here -->
       </div>
-
       <div id="main-content">{% block content %}{% endblock %}</div>
     </div>
   </body>

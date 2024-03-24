@@ -1,20 +1,60 @@
+button,
+a,
+p,
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 #navigation-panel {
   position: sticky;
-  border: 2px blue solid;
+  border-bottom: 1px black solid;
   padding: 0.5rem;
-  background-color: lightblue;
+  background-color: white;
   top: 0;
+  display: flex;
+
+  #home-nav {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex: 15;
+
+    button {
+      border: 0px;
+    }
+
+    #my-wallet-home-image {
+      width: 80%;
+    }
+  }
+
+  #actions-nav {
+    display: flex;
+    align-items: center;
+    flex: 75;
+  }
+
+  #profile-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 10;
+  }
 }
 
 #application-content {
-  border: 3px pink dotted;
   display: flex;
 
   #summary-panel {
-    border: 2px red dotted;
+    flex: 15;
+    background-color: lightgray;
+    margin-top: 1rem;
+    border-radius: 1rem;
   }
 
   #main-content {
-    border: 2px green solid;
+    flex: 85;
+    width: 100%;
   }
 }

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -10,9 +10,9 @@ def WelcomePage():
 def TranactionsPage():
     return render_template('transactions-page/transactions.html')
 
-@app.route("/wallet-summary")
+@app.route("/wallet-details")
 def WalletSummaryPage():
-    return render_template('wallet-summary-page/wallet-summary.html')
+    return render_template('wallet-details-page/wallet-details.html')
 
 @app.route("/user-profile")
 def UserProfilePage():
