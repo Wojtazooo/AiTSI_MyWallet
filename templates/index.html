@@ -4,23 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}My Flask App{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
   </head>
   <body>
-    <a href="/"><button>Home</button></a>
-
-    <div id="summary-panel">
-      <h3>Wallet Summary</h3>
-      <!-- Your wallet summary content goes here -->
-      <p>Balance: $1000</p>
-      <!-- You can display other wallet summary information here -->
-    </div>
-
     <div id="navigation-panel">
+      <a href="/"><button>Home</button></a>
       <a href="/wallet-summary"><button>Wallet Summary</button></a>
       <a href="/transactions"><button>Transactions History</button></a>
       <a href="/user-profile"><button>User Profile</button></a>
     </div>
 
-    <div id="main-content">{% block content %}{% endblock %}</div>
+    <div id="application-content">
+      <div id="summary-panel">
+        <h3>Wallet Summary</h3>
+        <!-- Your wallet summary content goes here -->
+        <p>Balance: $1000</p>
+        <!-- You can display other wallet summary information here -->
+      </div>
+
+      <div id="main-content">{% block content %}{% endblock %}</div>
+    </div>
   </body>
 </html>

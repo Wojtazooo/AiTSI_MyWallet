@@ -1,0 +1,20 @@
+#navigation-panel {
+  position: sticky;
+  border: 2px blue solid;
+  padding: 0.5rem;
+  background-color: lightblue;
+  top: 0;
+}
+
+#application-content {
+  border: 3px pink dotted;
+  display: flex;
+
+  #summary-panel {
+    border: 2px red dotted;
+  }
+
+  #main-content {
+    border: 2px green solid;
+  }
+}
