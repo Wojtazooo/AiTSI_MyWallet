@@ -1,0 +1,25 @@
+{% extends "index.html" %} {% block title %}Transactions history{% endblock %}
+{% block content %}
+
+<div id="transactions-history">
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Count</th>
+      <th>Price</th>
+      <th>Fees</th>
+    </tr>
+    {% for transaction in transactions %}
+    <tr>
+      <td>{{transaction.timestamp}}</td>
+      <td>{{transaction.count}}</td>
+      <td>{{transaction.price}} USD</td>
+      <td>{{transaction.fees}} USD</td>
+    </tr>
+    {%endfor%}
+  </table>
+
+  <a href="transaction-add"><button>Add transaction</button></a>
+</div>
+
+{% endblock %}
