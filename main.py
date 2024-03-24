@@ -1,14 +1,23 @@
 import os
 import random
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 from models.walletPosition import WalletPosition
 
-sijaxPath = os.path.join('.', os.path.dirname(__file__), 'static/js/sijax/')
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SIJAX_STATIC_PATH'] = sijaxPath
-app.config['SIJAX_JSON_URI'] = '/static/js/sijax/json2.js'
+app.config['SQLALCHEMY_DATABASE_URI'] =\
+        'sqlite:///' + os.path.join(basedir, 'database.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+db = SQLAlchemy(app)
+
+class WalletPositionDbModel(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  assetId = db.Column(db.Integer, nullable=False)
+  count = db.Column(db.Integer, nullable=False)
+  currentValue = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
 
 @app.route("/")
 def IndexPage():
