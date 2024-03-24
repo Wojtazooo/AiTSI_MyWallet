@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='index.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='wallet-details.css') }}"
+    />
   </head>
   <body>
     <div id="navigation-panel">
@@ -35,21 +39,10 @@
     <div id="application-content">
       <div id="summary-panel">
         <h3>Wallet Summary</h3>
-        <p>Balance: $1000</p>
+        <p>TODO...</p>
       </div>
 
-      <div id="main-content"></div>
-
-      <script>
-        $(document).ready(function () {
-          $("#main-content").load("/home");
-          $("a").on("click", function (e) {
-            e.preventDefault();
-            var page = $(this).attr("href");
-            $("#main-content").load(page);
-          });
-        });
-      </script>
+      <div id="main-content">{% block content %}{% endblock %}</div>
     </div>
   </body>
 </html>
