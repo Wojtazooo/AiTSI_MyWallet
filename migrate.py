@@ -1,4 +1,4 @@
-from main import app, db
+from src import App, Database
 
-with app.app_context():
-    db.create_all();
+with App.app_context():
+    Database.create_all();
