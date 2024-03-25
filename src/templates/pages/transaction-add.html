@@ -13,6 +13,7 @@
         count: $("#count-input").val(),
         price: $("#price-input").val(),
         fee: $("#fee-input").val(),
+        assetId: $("#asset-dropdown").val()
       };
 
       $.ajax({
@@ -33,6 +34,13 @@
 </script>
 
 <form id="transaction-add-form">
+  <div class="form-row"><label>Asset:</label>
+      <select id="asset-dropdown">
+      {% for asset in assets %} 
+        <option value="{{asset.id}}">{{ asset.name }}</td>
+      {%endfor%}
+    </select>
+  </div>
   <div class="form-row"><label>Count:</label><input id="count-input" type="number"></input></div>
   <div class="form-row"><label>Price:</label><input id="price-input" type="number" step="0.01"></input></div>
   <div class="form-row"><label>Fee:</label><input id="fee-input" type="number" step="0.01"></input></div>

@@ -5,6 +5,7 @@
   <table>
     <tr>
       <th>Date</th>
+      <th>Asset</th>
       <th>Count</th>
       <th>Price</th>
       <th>Fees</th>
@@ -12,6 +13,7 @@
     {% for transaction in transactions %}
     <tr>
       <td>{{transaction.timestamp}}</td>
+      <td>{{transaction.asset.name}}</td>
       <td>{{transaction.count}}</td>
       <td>{{transaction.price}} USD</td>
       <td>{{transaction.fees}} USD</td>
