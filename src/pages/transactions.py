@@ -13,13 +13,17 @@ def TranactionsPage():
     if request.method == 'POST':
         json = request.get_json();
 
-        print("transactions/add")
-        print(f"json: {json}");
+        print(f"[transactions/add] json: {json}");
 
-        # TODO: add calendar to select it
-        timestampValue = datetime.datetime.utcnow()
+        timestampValue = datetime.datetime.strptime(json['timestamp'], '%Y-%m-%d')
+        print(timestampValue)
 
-        transaction = WalletTransaction(assetId=json['assetId'], count=json['count'],timestamp=timestampValue, price=json['price'], fees=json['fee']);
+        transaction = WalletTransaction(
+            assetId=json['assetId'], 
+            count=json['count'],
+            timestamp=timestampValue, 
+            price=json['price'], 
+            fees=json['fee']);
         Database.session.add(transaction)
         Database.session.commit()
 
