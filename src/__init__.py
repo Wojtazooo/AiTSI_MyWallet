@@ -16,8 +16,10 @@ from src.pages.home import HomeBlueprint
 from src.pages.transactions import TransactionsBlueprint
 from src.pages.userProfile import UserProfileBlueprint
 from src.pages.walletDetails import WalletDetailsBlueprint
+from src.pages.assetValue import assetValueBlueprint
 
 App.register_blueprint(HomeBlueprint);
 App.register_blueprint(TransactionsBlueprint)
 App.register_blueprint(WalletDetailsBlueprint)
 App.register_blueprint(UserProfileBlueprint)
+App.register_blueprint(assetValueBlueprint)

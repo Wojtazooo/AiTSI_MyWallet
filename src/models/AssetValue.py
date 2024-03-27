@@ -8,5 +8,5 @@ class AssetValue(Database.Model):
   closeValue = Database.Column(Database.Numeric(precision=10, scale=2), nullable=False)
 
   def __repr__(self):
-    return f'<Asset Value timestamp={self.id} name={self.name}>'
+    return f'<Asset Value timestamp={self.timestamp}, assetId={self.assetId}, open={self.openValue}, close={self.closeValue}>'
   

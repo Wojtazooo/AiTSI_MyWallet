@@ -2,7 +2,6 @@ from datetime import datetime
 from src.models.Asset import Asset
 from src import App, Database
 from src.models.AssetValue import AssetValue
-from src.models.WalletTransaction import WalletTransaction
 import csv
 
 def parse_csv_and_add_to_db(csv_file, assetId):

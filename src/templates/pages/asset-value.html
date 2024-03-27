@@ -1,0 +1,9 @@
+{% extends "index.html" %} {% block title %}Transactions history{% endblock %}
+{% block content %}
+
+<div id="asset-value">
+  <h1>Price Graph</h1>
+  <img src="data:image/png;base64,{{ plot_url }}" alt="Price Chart" />
+</div>
+
+{% endblock %}
