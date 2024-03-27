@@ -1,9 +1,8 @@
 
 from flask import Blueprint, render_template
-from sqlalchemy import func, text
+from sqlalchemy import  text
 from src import Database
 from src.consts import TEMPLATE_FOLDER
-from src.models.WalletTransaction import WalletTransaction
 
 WalletDetailsBlueprint = Blueprint('walletDetails', __name__, template_folder=TEMPLATE_FOLDER)
 
