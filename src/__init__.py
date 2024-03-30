@@ -10,7 +10,8 @@ def ConfigureDatabase():
     return SQLAlchemy(App)
 
 def FormatDecimal(value):
-    print(f'Converting: {value} -> {"%.2f" % value}')
+    if(value == None): 
+        return value;
     return "%.2f" % value
 
 App = Flask(__name__)
