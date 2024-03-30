@@ -14,6 +14,10 @@ def GetWalletSummary() -> WalletSummary:
   walletPositions = GetWalletPositions()
   totalGain = sum(position.assetGain for position in walletPositions)
   totalWalletValue = sum(position.currentAssetWorth for position in walletPositions)
-  totalGainPercentage = totalGain * 100 / totalWalletValue
+
+  totalGainPercentage = 0
+
+  if(totalWalletValue != 0):
+    totalGainPercentage = totalGain * 100 / totalWalletValue
 
   return WalletSummary(totalGain=totalGain, totalWalletValue=totalWalletValue, totalGainPercentage=totalGainPercentage)
