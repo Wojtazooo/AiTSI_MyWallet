@@ -1,7 +1,7 @@
 {% extends "index.html" %} {% block title %}Transactions history{% endblock %}
 {% block content %} {% macro GainOrLoss(value, suffix) %} 
   {% if value > 0 %}
-  <td class="gain">{{ FormatDecimal(value) }}{{suffix}}</td>
+  <td class="gain">+{{ FormatDecimal(value) }}{{suffix}}</td>
   {% elif value < 0 %}
   <td class="loss">{{ FormatDecimal(value) }}{{suffix}}</td>
   {% else %}
@@ -28,7 +28,7 @@
       <td>{{ FormatDecimal(position.currentAssetWorth)}} zł</td>
       <td>{{ FormatDecimal(position.transactionTotalCost) }} zł</td>
       {{ GainOrLoss(position.assetGain, ' zł') }}
-      {{ GainOrLoss(position.assetPercentageReturn * 100, '%')}}
+      {{ GainOrLoss(position.assetPercentageReturn * 100, ' %')}}
       <td>{{ FormatDecimal(position.assetAverageBuyPrice)}}</td>
     </tr>
     {%endfor%}

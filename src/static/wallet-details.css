@@ -1,25 +1,3 @@
-table {
-  width: 100%;
-}
-
-td,
-th {
-  padding: 5px 10px 5px 10px;
-  border: solid 1px black;
-}
-
-tr {
-  background-color: rgb(40, 40, 40);
-}
-
-tr:hover {
-  background-color: #9a5722;
-}
-
-th {
-  background-color: #9a5722;
-}
-
 #wallet-possitions {
   padding: 1rem;
 }

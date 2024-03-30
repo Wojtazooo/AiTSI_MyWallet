@@ -66,11 +66,29 @@
           <span>Total wallet gain/loss:</span>
 
           {% if walletSummary.totalGain > 0 %}
-          <b class="gain">{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
+          <b class="gain">+{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
           {% elif walletSummary.totalGain < 0 %}
           <b class="loss">{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
           {% else %}
           <b class="neutral">{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
+          {% endif %}
+        </div>
+
+        <div class="summary-row">
+          <span>Total wallet gain/loss in %:</span>
+
+          {% if walletSummary.totalGain > 0 %}
+          <b class="gain"
+            >+{{ FormatDecimal(walletSummary.totalGainPercentage) }} %</b
+          >
+          {% elif walletSummary.totalGain < 0 %}
+          <b class="loss"
+            >{{ FormatDecimal(walletSummary.totalGainPercentage) }} %</b
+          >
+          {% else %}
+          <b class="neutral"
+            >{{ FormatDecimal(walletSummary.totalGainPercentage) }} %</b
+          >
           {% endif %}
         </div>
       </div>
