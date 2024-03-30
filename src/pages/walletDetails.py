@@ -28,13 +28,12 @@ FROM
             JOIN (
                 SELECT
                     assetId,
+                    MAX(timestamp),
                     closeValue as lastAssetCloseValue
                 FROM
                     asset_value
-                ORDER BY
-                    timestamp DESC
-                LIMIT
-                    1
+                GROUP BY
+                    assetId
             ) AV ON AV.assetId = A.id
         GROUP BY
             A.id,
