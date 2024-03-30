@@ -17,6 +17,7 @@ def FormatDecimal(value):
 App = Flask(__name__)
 Database = ConfigureDatabase()
 
+from src.models.DTO.WalletSummary import GetWalletSummary
 from src.pages.home import HomeBlueprint
 from src.pages.transactions import TransactionsBlueprint
 from src.pages.userProfile import UserProfileBlueprint
@@ -29,3 +30,8 @@ App.register_blueprint(WalletDetailsBlueprint)
 App.register_blueprint(UserProfileBlueprint)
 App.register_blueprint(assetValueBlueprint)
 App.jinja_env.globals.update(FormatDecimal=FormatDecimal)
+
+@App.context_processor
+def injectWalletSummary():
+    walletSummary = GetWalletSummary();
+    return dict(walletSummary=walletSummary)

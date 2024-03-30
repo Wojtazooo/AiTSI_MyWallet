@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from src import Database
 from src.consts import TEMPLATE_FOLDER
-from src.models.AssetValue import AssetValue
+from src.models.database.AssetValue import AssetValue
 
 assetValueBlueprint = Blueprint('assetValue', __name__, template_folder=TEMPLATE_FOLDER)
 

@@ -24,10 +24,10 @@
     <tr>
       <td>{{position.assetName}}</td>
       <td>{{ position.currentAssetCount }}</td>
-      <td>{{ FormatDecimal(position.lastAssetCloseValue) }} USD</td> 
-      <td>{{ FormatDecimal(position.currentAssetWorth)}} USD</td>
-      <td>{{ FormatDecimal(position.transactionTotalCost) }} USD</td>
-      {{ GainOrLoss(position.assetGain, ' USD') }}
+      <td>{{ FormatDecimal(position.lastAssetCloseValue) }} zł</td> 
+      <td>{{ FormatDecimal(position.currentAssetWorth)}} zł</td>
+      <td>{{ FormatDecimal(position.transactionTotalCost) }} zł</td>
+      {{ GainOrLoss(position.assetGain, ' zł') }}
       {{ GainOrLoss(position.assetPercentageReturn * 100, '%')}}
       <td>{{ FormatDecimal(position.assetAverageBuyPrice)}}</td>
     </tr>

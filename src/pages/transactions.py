@@ -3,8 +3,8 @@ import datetime
 from flask import Blueprint, render_template, request
 from src import Database
 from src.consts import TEMPLATE_FOLDER
-from src.models.Asset import Asset
-from src.models.WalletTransaction import WalletTransaction
+from src.models.database.Asset import Asset
+from src.models.database.WalletTransaction import WalletTransaction
 
 TransactionsBlueprint = Blueprint('transactions', __name__, template_folder=TEMPLATE_FOLDER)
 

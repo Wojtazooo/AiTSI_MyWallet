@@ -1,9 +1,9 @@
 from datetime import datetime
 
 import requests
-from src.models.Asset import Asset
+from src.models.database.Asset import Asset
 from src import App, Database
-from src.models.AssetValue import AssetValue
+from src.models.database.AssetValue import AssetValue
 import csv
 
 def parse_csv_and_add_to_db(csv_file, assetId):
