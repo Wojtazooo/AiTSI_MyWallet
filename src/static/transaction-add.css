@@ -6,5 +6,19 @@
   padding: 1rem;
 
   .form-row {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    input,
+    select {
+      width: 100%;
+      flex: 5;
+    }
+
+    label {
+      flex: 1;
+    }
   }
 }
