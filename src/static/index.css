@@ -12,6 +12,7 @@ select {
   margin: 5px;
   padding: 5px;
   border: 1px white solid;
+  border-radius: 0.2rem;
 }
 
 button {
@@ -19,6 +20,8 @@ button {
   color: #f2f2f2;
   padding: 5px 10px 5px 10px;
   margin: 10px;
+  border: 1px white solid;
+  border-radius: 0.2rem;
 }
 
 #navigation-panel {
@@ -37,10 +40,11 @@ button {
 
     button {
       border: 0px;
+      background-color: rgb(56, 56, 56);
     }
 
     #my-wallet-home-image {
-      width: 80%;
+      width: 100%;
     }
   }
 
@@ -65,7 +69,7 @@ button {
     flex: 15;
     background-color: rgb(56, 56, 56);
     margin-top: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.2rem;
   }
 
   #main-content {
