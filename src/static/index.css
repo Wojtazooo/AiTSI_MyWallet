@@ -1,16 +1,31 @@
-button,
-a,
-p,
-h1,
-h2 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+body,
+button {
+  background-color: rgb(10, 10, 10);
+  color: #f2f2f2;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+input,
+select {
+  color: white;
+  background-color: rgb(56, 56, 56);
+  margin: 5px;
+  padding: 5px;
+  border: 1px white solid;
+}
+
+button {
+  background-color: #9a5722;
+  color: #f2f2f2;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
 }
 
 #navigation-panel {
   position: sticky;
-  border-bottom: 1px black solid;
+  border: 1px white solid;
   padding: 0.5rem;
-  background-color: white;
+  background-color: rgb(56, 56, 56);
   top: 0;
   display: flex;
 
@@ -48,7 +63,7 @@ h2 {
 
   #summary-panel {
     flex: 15;
-    background-color: lightgray;
+    background-color: rgb(56, 56, 56);
     margin-top: 1rem;
     border-radius: 1rem;
   }
