@@ -24,13 +24,24 @@ button {
   border-radius: 0.2rem;
 }
 
+.gain {
+  color: rgb(60, 217, 60);
+}
+
+.neutral {
+  color: orange;
+}
+
+.loss {
+  color: red;
+}
+
 #navigation-panel {
   position: sticky;
-  border: 1px white solid;
-  padding: 0.5rem;
   background-color: rgb(56, 56, 56);
   top: 0;
   display: flex;
+  border-radius: 0.2rem;
 
   #home-nav {
     display: flex;
@@ -41,6 +52,8 @@ button {
     button {
       border: 0px;
       background-color: rgb(56, 56, 56);
+      padding: 0px;
+      margin: 0px;
     }
 
     #my-wallet-home-image {
@@ -52,6 +65,15 @@ button {
     display: flex;
     align-items: center;
     flex: 75;
+
+    div {
+      padding: 0rem 1rem 0rem 1rem;
+      width: 100%;
+    }
+
+    button {
+      font-size: larger;
+    }
   }
 
   #profile-nav {
@@ -59,6 +81,11 @@ button {
     justify-content: flex-end;
     align-items: center;
     flex: 10;
+    padding-right: 1rem;
+
+    button {
+      font-size: larger;
+    }
   }
 }
 
@@ -66,10 +93,22 @@ button {
   display: flex;
 
   #summary-panel {
+    height: 100%;
     flex: 15;
     background-color: rgb(56, 56, 56);
     margin-top: 1rem;
     border-radius: 0.2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .summary-row {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   #main-content {

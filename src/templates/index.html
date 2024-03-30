@@ -43,8 +43,10 @@
       </div>
 
       <div id="actions-nav">
-        <a href="/wallet-details"><button>Wallet Details</button></a>
-        <a href="/transactions"><button>Transactions History</button></a>
+        <div>
+          <a href="/wallet-details"><button>Wallet Details</button></a>
+          <a href="/transactions"><button>Transactions History</button></a>
+        </div>
       </div>
 
       <div id="profile-nav">
@@ -55,14 +57,22 @@
     <div id="application-content">
       <div id="summary-panel">
         <h3>Wallet Summary</h3>
-        <p>
-          Total wallet value: {{ FormatDecimal(walletSummary.totalWalletValue)
-          }} zł
-        </p>
-        <p>
-          Total wallet gain/loss: {{ FormatDecimal(walletSummary.totalGain) }}
-          zł
-        </p>
+        <div class="summary-row">
+          <span>Total wallet value:</span>
+          <b>{{ FormatDecimal(walletSummary.totalWalletValue) }} zł</b>
+        </div>
+
+        <div class="summary-row">
+          <span>Total wallet gain/loss:</span>
+
+          {% if walletSummary.totalGain > 0 %}
+          <b class="gain">{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
+          {% elif walletSummary.totalGain < 0 %}
+          <b class="loss">{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
+          {% else %}
+          <b class="neutral">{{ FormatDecimal(walletSummary.totalGain) }} zł</b>
+          {% endif %}
+        </div>
       </div>
 
       <div id="main-content">{% block content %}{% endblock %}</div>

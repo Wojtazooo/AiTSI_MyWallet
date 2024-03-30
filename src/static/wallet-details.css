@@ -20,18 +20,6 @@ th {
   background-color: #9a5722;
 }
 
-.gain {
-  color: green;
-}
-
-.neutral {
-  color: orange;
-}
-
-.loss {
-  color: red;
-}
-
 #wallet-possitions {
   padding: 1rem;
 }
