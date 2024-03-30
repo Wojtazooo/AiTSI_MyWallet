@@ -1,4 +1,6 @@
 from datetime import datetime
+
+import requests
 from src.models.Asset import Asset
 from src import App, Database
 from src.models.AssetValue import AssetValue
@@ -16,6 +18,42 @@ def parse_csv_and_add_to_db(csv_file, assetId):
             )
             Database.session.add(asset_value)
         Database.session.commit()
+
+def AddAssetValuesFromCsv(assets):
+    for asset in assets:
+        try:
+            parse_csv_and_add_to_db(f'assetValuesData/{asset.tickerSymbol}.csv', asset.id)
+            print(f'Succesfully added asset values for: {asset}')
+        except:
+            print(f'Could not add asset values for: {asset}')
+
+def AddAssetValuesDirectlyFromStooq(assets):
+    for asset in assets:
+        try:
+            url = f'https://stooq.pl/q/d/l/?s={asset.tickerSymbol}&i=d'
+            response = requests.get(url)
+            
+            print(f'Sent request to = {url}, result = {response.status_code}');
+
+            if(response.status_code >= 300 or response.status_code < 200):
+                raise
+
+            content = response.text.splitlines();
+
+            for row in content[1:]:
+                rowValues = row.split(',')
+                asset_value = AssetValue(
+                    assetId = asset.id,
+                    timestamp=datetime.strptime(rowValues[0], '%Y-%m-%d').date(),
+                    openValue=float(rowValues[1]),
+                    closeValue=float(rowValues[4])
+                )
+                Database.session.add(asset_value)
+            Database.session.commit()
+            print(f'Succesfully added {len(content[1:])} asset values for: {asset}')
+        except:
+            print(f'Could not get asset values for: {asset}')
+            raise
 
 with App.app_context():
     Database.drop_all();
@@ -35,9 +73,6 @@ with App.app_context():
 
     Database.session.commit()
 
-    for asset in assets:
-        try:
-            parse_csv_and_add_to_db(f'assetValuesData/{asset.tickerSymbol}.csv', asset.id)
-            print(f'Succesfully added asset values for: {asset}')
-        except:
-            print(f'Could not add asset values for: {asset}')
+    #AddAssetValuesFromCsv(assets)
+    AddAssetValuesDirectlyFromStooq(assets);
+   
