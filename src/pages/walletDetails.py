@@ -3,7 +3,7 @@ from flask import Blueprint, render_template
 from sqlalchemy import  text
 from src import Database
 from src.consts import TEMPLATE_FOLDER
-from src.models.database.WalletTransaction import GetWalletPositions
+from src.models.DTO.WalletPosition import GetWalletPositions
 
 WalletDetailsBlueprint = Blueprint('walletDetails', __name__, template_folder=TEMPLATE_FOLDER)
 

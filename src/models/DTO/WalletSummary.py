@@ -1,5 +1,6 @@
 import decimal
-from src.models.database.WalletTransaction import GetWalletPositions
+
+from src.models.DTO.WalletPosition import GetWalletPositions
 
 class WalletSummary:
     def __init__(self, totalGain: decimal, totalWalletValue: decimal) -> None:
