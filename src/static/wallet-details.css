@@ -3,3 +3,15 @@ th,
 table {
   border: solid 1px black;
 }
+
+.gain {
+  color: green;
+}
+
+.neutral {
+  color: orange;
+}
+
+.loss {
+  color: red;
+}

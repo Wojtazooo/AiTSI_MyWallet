@@ -9,6 +9,10 @@ def ConfigureDatabase():
     App.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     return SQLAlchemy(App)
 
+def FormatDecimal(value):
+    print(f'Converting: {value} -> {"%.2f" % value}')
+    return "%.2f" % value
+
 App = Flask(__name__)
 Database = ConfigureDatabase()
 
@@ -23,3 +27,4 @@ App.register_blueprint(TransactionsBlueprint)
 App.register_blueprint(WalletDetailsBlueprint)
 App.register_blueprint(UserProfileBlueprint)
 App.register_blueprint(assetValueBlueprint)
+App.jinja_env.globals.update(FormatDecimal=FormatDecimal)

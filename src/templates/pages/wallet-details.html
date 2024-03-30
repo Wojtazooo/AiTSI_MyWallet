@@ -1,18 +1,35 @@
 {% extends "index.html" %} {% block title %}Transactions history{% endblock %}
-{% block content %}
+{% block content %} {% macro GainOrLoss(value, suffix) %} 
+  {% if value > 0 %}
+  <td class="gain">{{ FormatDecimal(value) }}{{suffix}}</td>
+  {% elif value < 0 %}
+  <td class="loss">{{ FormatDecimal(value) }}{{suffix}}</td>
+  {% else %}
+  <td class="neutral">{{ FormatDecimal(value) }}{{suffix}}</span>
+{% endif %} {% endmacro %}
 
 <div id="wallet-possitions">
   <table>
     <tr>
-      <th>Asset</th>
+      <th>Asset name</th>
       <th>Open positions</th>
+      <th>Current price</th>
+      <th>Current asset worth</th>
       <th>Total cost</th>
+      <th>Gain/Loss</th>
+      <th>Gain/Loss %</th>
+      <th>Asset Average buy price</th>
     </tr>
     {% for position in walletPositions %}
     <tr>
       <td>{{position.assetName}}</td>
-      <td>{{position.currentAssetCount}}</td>
-      <td>{{position.transactionTotalCost}} USD</td>
+      <td>{{ position.currentAssetCount }}</td>
+      <td>{{ FormatDecimal(position.lastAssetCloseValue) }} USD</td> 
+      <td>{{ FormatDecimal(position.currentAssetWorth)}} USD</td>
+      <td>{{ FormatDecimal(position.transactionTotalCost) }} USD</td>
+      {{ GainOrLoss(position.assetGain, ' USD') }}
+      {{ GainOrLoss(position.assetPercentageReturn * 100, '%')}}
+      <td>{{ FormatDecimal(position.assetAverageBuyPrice)}}</td>
     </tr>
     {%endfor%}
   </table>
