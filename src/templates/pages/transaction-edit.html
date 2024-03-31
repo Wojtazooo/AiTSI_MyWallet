@@ -25,7 +25,6 @@
       event.preventDefault();
 
       var jsonData = {
-        id: "{{transactionToEdit.id}}",
         count: $("#count-input").val(),
         price: $("#price-input").val(),
         fees: $("#fees-input").val(),
@@ -34,7 +33,7 @@
       };
 
       $.ajax({
-        url: "/transactions",
+        url: "/transactions/{{transactionToEdit.id}}",
         type: "PUT",
         contentType: "application/json",
         data: JSON.stringify(jsonData),

@@ -28,30 +28,34 @@ def TranactionsPage():
         Database.session.commit()
 
         return {}
-    elif request.method == 'PUT':
-        json = request.get_json();
-
-        print(f"[transactions/edit] json: {json}");
-
-        transactionToUpdate = WalletTransaction.query.get_or_404(json['id'])
-
-
-        timestampValue = datetime.datetime.strptime(json['timestamp'], '%Y-%m-%d')
-
-        transactionToUpdate.assetId = json['assetId']
-        transactionToUpdate.count = json['count']
-        transactionToUpdate.timestamp = timestampValue
-        transactionToUpdate.price = json['price']
-        transactionToUpdate.fees = json['fees']
-
-        Database.session.commit()
-
-        return {}
+    
     elif request.method == 'GET':
         transactionsToDisplay = WalletTransaction.query.order_by(WalletTransaction.timestamp.desc()).all()
 
         return render_template('pages/transactions.html', transactions = transactionsToDisplay)
     
+
+@TransactionsBlueprint.route('/transactions/<transactionId>', methods = ['PUT', 'DELETE'])
+def EditTransaction(transactionId):
+  if request.method == 'PUT':
+    json = request.get_json();
+
+    transactionToUpdate = WalletTransaction.query.get_or_404(transactionId)
+
+    timestampValue = datetime.datetime.strptime(json['timestamp'], '%Y-%m-%d')
+
+    transactionToUpdate.assetId = json['assetId']
+    transactionToUpdate.count = json['count']
+    transactionToUpdate.timestamp = timestampValue
+    transactionToUpdate.price = json['price']
+    transactionToUpdate.fees = json['fees']
+    Database.session.commit()
+    return {}
+  elif request.method == 'DELETE':
+    transaction = WalletTransaction.query.get_or_404(transactionId)
+    Database.session.delete(transaction)
+    Database.session.commit()
+    return {}
 
 @TransactionsBlueprint.route('/transaction-add')
 def TransactionAddPage():

@@ -62,7 +62,7 @@ with App.app_context():
     assets = [
         Asset(id=1, name='JSW', tickerSymbol='JSW'),
         Asset(id=2, name='CD Projekt', tickerSymbol='CDR'),
-        Asset(id=3, name='PKO BP', tickerSymbol='PKOBP'),
+        Asset(id=3, name='PKO BP', tickerSymbol='PKO'),
         Asset(id=4, name='PZU', tickerSymbol='PZU'),
         Asset(id=5, name='Alior', tickerSymbol='ALR'),
         Asset(id=6, name='PKN ORLEN', tickerSymbol='PKN')

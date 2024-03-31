@@ -23,7 +23,9 @@
           <a href="transaction-edit/{{transaction.id}}"
             ><button><i class="fa fa-pencil"></i></button
           ></a>
-          <button><i class="fa fa-trash"></i></button>
+          <button class="delete-button" data-item-id="{{ transaction.id }}">
+            <i class="fa fa-trash"></i>
+          </button>
         </div>
       </td>
     </tr>
@@ -34,5 +36,29 @@
     <a href="transaction-add"><button>Add transaction</button></a>
   </div>
 </div>
+
+<script>
+  // Example AJAX function
+  function deleteTransaction(transactionId) {
+    $.ajax({
+      url: "/transactions/" + transactionId,
+      type: "DELETE",
+      success: function (response) {
+        console.log(response);
+        window.location.href = "/transactions";
+      },
+      error: function (error) {
+        console.error("Error:", error);
+      },
+    });
+  }
+
+  $(document).ready(function () {
+    $(".delete-button").click(function () {
+      var trnasactionId = $(this).data("item-id");
+      deleteTransaction(trnasactionId);
+    });
+  });
+</script>
 
 {% endblock %}
