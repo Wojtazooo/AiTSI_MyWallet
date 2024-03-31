@@ -19,7 +19,6 @@ button {
   background-color: #9a5722;
   color: #f2f2f2;
   padding: 5px 10px 5px 10px;
-  margin: 10px;
   border: 1px #9a5722 solid;
   border-radius: 0.2rem;
   cursor: pointer;
@@ -40,15 +39,16 @@ td,
 th {
   padding: 5px 10px 5px 10px;
   border: solid 1px black;
+  text-align: center;
 }
 
 tr {
   background-color: rgb(40, 40, 40);
 }
 
-tr:hover {
+/* tr:hover {
   background-color: #9a5722;
-}
+} */
 
 th {
   background-color: #9a5722;
@@ -101,6 +101,8 @@ th {
     flex: 75;
 
     div {
+      display: flex;
+      gap: 1rem;
       padding: 0rem 1rem 0rem 1rem;
       width: 100%;
     }

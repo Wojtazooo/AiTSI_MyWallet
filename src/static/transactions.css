@@ -1,0 +1,27 @@
+.fa-trash {
+  color: red;
+}
+
+.fa-pencil {
+  color: orange;
+}
+
+#row-option {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background-color: rgb(40, 40, 40);
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+    border: 0px;
+  }
+}
+
+#transactions-add-navigation-panel {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}

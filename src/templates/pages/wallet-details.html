@@ -28,13 +28,19 @@
       <td>{{ FormatDecimal(position.currentAssetWorth)}} zł</td>
       <td>{{ FormatDecimal(position.transactionTotalCost) }} zł</td>
       {{ GainOrLoss(position.assetGain, ' zł') }}
-      {{ GainOrLoss(position.assetPercentageReturn * 100, ' %')}}
+      {% if position.assetPercentageReturn != none %} 
+        {{ GainOrLoss(position.assetPercentageReturn * 100, ' %')}}
+      {% else %}
+        <td></td>
+      {% endif %}
       <td>{{ FormatDecimal(position.assetAverageBuyPrice)}}</td>
     </tr>
     {%endfor%}
   </table>
 
-  <a href="transaction-add"><button>Add transaction</button></a>
+  <div id="transactions-add-navigation-panel">
+    <a href="transaction-add"><button>Add transaction</button></a>
+  </div>
 </div>
 
 {% endblock %}

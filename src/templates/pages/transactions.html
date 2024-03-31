@@ -9,6 +9,7 @@
       <th>Count</th>
       <th>Price</th>
       <th>Fees</th>
+      <th>Options</th>
     </tr>
     {% for transaction in transactions %}
     <tr>
@@ -17,11 +18,21 @@
       <td>{{transaction.count}}</td>
       <td>{{transaction.price}} zł</td>
       <td>{{transaction.fees}} zł</td>
+      <td>
+        <div id="row-option">
+          <a href="transaction-edit/{{transaction.id}}"
+            ><button><i class="fa fa-pencil"></i></button
+          ></a>
+          <button><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
     </tr>
     {%endfor%}
   </table>
 
-  <a href="transaction-add"><button>Add transaction</button></a>
+  <div id="transactions-add-navigation-panel">
+    <a href="transaction-add"><button>Add transaction</button></a>
+  </div>
 </div>
 
 {% endblock %}
