@@ -2,8 +2,31 @@
 {% block content %}
 
 <div id="asset-value">
-  <h1>Price Graph</h1>
-  <img src="data:image/png;base64,{{ plot_url }}" alt="Price Chart" />
+  <h1>Price Graph - {{asset.name}}</h1>
+  <div style="width: 1000px; height: 400px">
+    <canvas id="price-chart"></canvas>
+  </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Sample data
+  var labels = {{ timestamps | tojson }} ;
+  var data = {{ values | tojson }} ;
+
+
+  var ctx = document.getElementById('price-chart').getContext('2d');
+  var pieChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+      }]
+    },
+    options: {
+
+    }
+  });
+</script>
 {% endblock %}
