@@ -1,7 +1,7 @@
 from sqlalchemy import text
 from src import Database
-
 def GetWalletPositions():
+
   sql_query = """
   SELECT
       *,
