@@ -1,9 +1,5 @@
 
-import base64
-import io
 from flask import Blueprint, render_template
-from matplotlib import pyplot as plt
-import numpy as np
 from src import Database
 from src.consts import TEMPLATE_FOLDER
 from src.models.database.Asset import Asset

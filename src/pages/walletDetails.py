@@ -1,10 +1,7 @@
 
 from flask import Blueprint, render_template
-from sqlalchemy import  text
-from src import Database
 from src.consts import TEMPLATE_FOLDER
 from src.models.DTO.WalletPosition import GetWalletPositions
-import plotly.graph_objs as go
 
 from src.models.DTO.WalletSummary import GetWalletSummary
 
