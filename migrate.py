@@ -1,5 +1,4 @@
 from datetime import datetime
-
 import requests
 from src.models.database.Asset import Asset
 from src import App, Database
