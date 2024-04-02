@@ -3,9 +3,13 @@
 
 <form id="transaction-form">
   <div class="form-row"><label>Asset:</label>
-      <select id="asset-dropdown" value="{{transactionToEdit.assetId}}">
+      <select id="asset-dropdown">
       {% for asset in assets %} 
-        <option value="{{asset.id}}">{{ asset.name }}</option>
+        {% if transactionToEdit.assetId == asset.id %}
+          <option value="{{asset.id}}" selected>{{ asset.name }}</option>
+        {% else %} 
+          <option value="{{asset.id}}" >{{ asset.name }}</option>
+        {% endif %}
       {%endfor%}
       </select>
     </div>
