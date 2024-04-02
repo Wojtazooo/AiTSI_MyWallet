@@ -150,5 +150,6 @@ th {
   #main-content {
     flex: 85;
     width: 100%;
+    margin: 1rem;
   }
 }
