@@ -5,6 +5,7 @@ from src import Database
 from src.consts import TEMPLATE_FOLDER
 from src.models.database.Asset import Asset
 from src.models.database.WalletTransaction import WalletTransaction
+from datetime import datetime
 
 TransactionsBlueprint = Blueprint('transactions', __name__, template_folder=TEMPLATE_FOLDER)
 
@@ -15,7 +16,7 @@ def TranactionsPage():
 
         print(f"[transactions/add] json: {json}");
 
-        timestampValue = datetime.datetime.strptime(json['timestamp'], '%Y-%m-%d')
+        timestampValue = datetime.strptime(json['timestamp'], '%Y-%m-%d')
         print(timestampValue)
 
         transaction = WalletTransaction(
@@ -42,7 +43,7 @@ def EditTransaction(transactionId):
 
     transactionToUpdate = WalletTransaction.query.get_or_404(transactionId)
 
-    timestampValue = datetime.datetime.strptime(json['timestamp'], '%Y-%m-%d')
+    timestampValue = datetime.strptime(json['timestamp'], '%Y-%m-%d')
 
     transactionToUpdate.assetId = json['assetId']
     transactionToUpdate.count = json['count']
@@ -59,7 +60,7 @@ def EditTransaction(transactionId):
 
 @TransactionsBlueprint.route('/transaction-add')
 def TransactionAddPage():
-    return render_template('pages/transaction-add.html', assets=Asset.query.all())
+    return render_template('pages/transaction-add.html', assets=Asset.query.all(), todayDate = datetime.now().strftime("%Y-%m-%d"))
 
 @TransactionsBlueprint.route('/transaction-edit/<transactionId>')
 def TransactionEditPage(transactionId):
