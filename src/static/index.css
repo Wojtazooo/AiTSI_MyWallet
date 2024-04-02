@@ -9,8 +9,6 @@ input,
 select {
   color: white;
   background-color: rgb(56, 56, 56);
-  margin: 5px;
-  padding: 5px;
   border: 1px white solid;
   border-radius: 0.2rem;
 }
