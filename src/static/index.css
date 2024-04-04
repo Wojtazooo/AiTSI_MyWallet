@@ -24,7 +24,8 @@ button {
   border: 1px #9a5722 solid;
   border-radius: 0.2rem;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
   transition-duration: 0.4s;
 }
 
@@ -91,6 +92,7 @@ th {
   top: 0;
   display: flex;
   border-radius: 0.2rem;
+  z-index: 99999;
 
   #home-nav {
     display: flex;
@@ -170,5 +172,33 @@ th {
     flex: 85;
     width: 100%;
     margin: 1rem;
+  }
+}
+
+#wecome-page {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .flask-img {
+    max-height: 100px;
+    filter: invert(1);
+  }
+
+  .sql-img {
+    max-height: 100px;
+    filter: invert(1);
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: square;
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
   }
 }
