@@ -58,7 +58,6 @@ th {
 
 .table-row-option {
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: center;
 
@@ -67,6 +66,10 @@ th {
     margin: 0px;
     padding: 0px 5px 0px 5px;
     border: 0px;
+
+    i {
+      margin: 5px
+    }
   }
 }
 

@@ -4,9 +4,6 @@
   justify-content: center;
 }
 
-#pie-chart-container {
-  width: 400px;
-  height: 400px;
-  background-color: rgb(40, 40, 40);
-  border-radius: 0.2rem;
+.fa-arrow-trend-up {
+  color: lightseagreen;
 }
