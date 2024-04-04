@@ -33,7 +33,7 @@
       {% else %}
         <td></td>
       {% endif %}
-      <td>{{ FormatDecimal(position.assetAverageBuyPrice)}}</td>
+      <td>{{ FormatDecimal(position.assetAverageBuyPrice)}} zł</td>
     </tr>
     {%endfor%}
   </table>
@@ -42,13 +42,14 @@
     <a href="transaction-add"><button>Add transaction</button></a>
   </div>
 
-  <h1>Assets pie chart:</h1>
+  <label>Assets pie chart:</label>
   <div id="pie-chart-container" style="width: 400px; height: 400px;">
     <canvas id="pie-chart" width="100" height="100"></canvas>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <script>
   // Sample data
   var labels = {{ pieChartLabels | tojson }} ;
@@ -67,9 +68,7 @@
         data: data,
       }]
     },
-    options: {
-      
-    }
+    options: {}
   });
 </script>
 {% endblock %}

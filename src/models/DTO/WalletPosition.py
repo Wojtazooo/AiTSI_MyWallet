@@ -34,8 +34,6 @@ def GetWalletPositions():
               A.name
       );
       """
-  print('fetching new walletPositions')
-
   walletPositions =  Database.session.execute(text(sql_query)).fetchall()
 
   return walletPositions

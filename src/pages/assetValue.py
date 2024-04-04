@@ -1,5 +1,5 @@
 
-from flask import Blueprint, render_template
+from flask import Blueprint, jsonify, render_template
 from src import Database
 from src.consts import TEMPLATE_FOLDER
 from src.models.database.Asset import Asset
@@ -8,7 +8,7 @@ from src.models.database.AssetValue import AssetValue
 assetValueBlueprint = Blueprint('assetValue', __name__, template_folder=TEMPLATE_FOLDER)
 
 @assetValueBlueprint.route("/asset-value/<assetId>")
-def UserProfilePage(assetId):
+def assetValuePage(assetId):
     print(assetId)
     
     asset = Asset.query.get_or_404(assetId)
@@ -22,3 +22,15 @@ def UserProfilePage(assetId):
 
 
     return render_template('pages/asset-value.html', timestamps=timestamps, values=values, asset=asset)
+
+@assetValueBlueprint.route("/asset-value/<assetId>/<timestamp>")
+def getLastPrice(assetId, timestamp):
+  assetValue = AssetValue.query.filter(AssetValue.assetId == assetId, AssetValue.timestamp >= timestamp).first()
+  
+  if(assetValue is None):
+    assetValue = AssetValue.query.filter(AssetValue.assetId == assetId).order_by(AssetValue.timestamp.desc()).first()
+  
+  if(assetValue is None):
+    raise
+  
+  return jsonify({'value': assetValue.closeValue})

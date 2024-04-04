@@ -29,6 +29,7 @@
     <div class="form-row">
       <label>Asset price:</label>
       <div class="value-column">
+        <button type="button" id="find-price-button"><i class="fa fa-magnifying-glass-dollar"></i></button>
         <input id="price-input" type="number" value="0.00" step="0.01" />
         <label>zł</label>
       </div>
@@ -40,7 +41,7 @@
         <label>zł</label>
       </div>
     </div>
-    
+
     <hr class="form-row" />
 
     <div class="form-row">
@@ -57,13 +58,25 @@
         <label>zł</label>
       </div>
     </div>
-    <button>Add transaction</button>
+    <button type="submit">Add transaction</button>
   </form>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 
   <script>
     $(document).ready(function () {
+      function updateTotals() {
+        var count = parseFloat($('#count-input').val()) || 0
+        var price = parseFloat($('#price-input').val()) || 0
+        var fees = parseFloat($('#fees-input').val()) || 0
+        var totalPrice = count * price
+    
+        $('#total-price-input').val(totalPrice.toFixed(2))
+        $('#total-price-with-fees-input').val((totalPrice + fees).toFixed(2))
+      }
+
+      updateTotals()
+
       $('#transaction-form').submit(function (event) {
         event.preventDefault()
     
@@ -90,20 +103,31 @@
         })
       })
     
-      $('#count-input, #price-input, #fees-input').on('input', function () {
-        var count = parseFloat($('#count-input').val()) || 0
-        var price = parseFloat($('#price-input').val()) || 0
-        var fees = parseFloat($('#fees-input').val()) || 0
-        var totalPrice = count * price
-    
-        $('#total-price-input').val(totalPrice.toFixed(2))
-        $('#total-price-with-fees-input').val((totalPrice + fees).toFixed(2))
+      $('#count-input, #price-input, #fees-input').on('change', function () {
+        updateTotals()
+      })
+
+      $('#find-price-button').click(function () {
+        var assetId = $('#asset-dropdown').val()
+        var timestamp = $('#timestamp-input').val()  
+
+        $.ajax({
+          url: '/asset-value/' + assetId + '/' + timestamp,
+          type: 'GET',
+          success: function (response) {
+            console.log('Success:', response)
+            $('#price-input').val(parseFloat(response.value).toFixed(2)).change()
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error)
+          }
+        })
       })
     })
-
-    $("#price-input, #fees-input").change(function() {
-      $(this).val(parseFloat($(this).val()).toFixed(2));
-    });
+    
+    $('#price-input, #fees-input').change(function () {
+      $(this).val(parseFloat($(this).val()).toFixed(2))
+    })
     
     $('#timestamp-input').datepicker({
       dateFormat: 'yy-mm-dd'

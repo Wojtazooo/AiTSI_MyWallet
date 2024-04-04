@@ -13,6 +13,10 @@ select {
   border-radius: 0.2rem;
 }
 
+input:disabled {
+  color: rgb(125, 125, 125);
+}
+
 button {
   background-color: #9a5722;
   color: #f2f2f2;
