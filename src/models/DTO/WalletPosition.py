@@ -12,6 +12,7 @@ def GetWalletPositions():
       (
           SELECT
               A.name as assetName,
+              A.id as assetId,
               AV.lastAssetCloseValue as lastAssetCloseValue,
               SUM(WT.count) as currentAssetCount,
               SUM(WT.count * WT.price + WT.fees) as transactionTotalCost,

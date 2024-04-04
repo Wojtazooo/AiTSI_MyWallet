@@ -19,6 +19,7 @@
       <th>Gain/Loss</th>
       <th>Gain/Loss %</th>
       <th>Asset Average buy price</th>
+      <th>Options</th>
     </tr>
     {% for position in walletPositions %}
     <tr>
@@ -34,6 +35,11 @@
         <td></td>
       {% endif %}
       <td>{{ FormatDecimal(position.assetAverageBuyPrice)}} zł</td>
+      <td>
+        <div class="table-row-option">
+          <a href="asset-value/{{ position.assetId }}"><button><label>Check price</label><i class="fa fa-arrow-trend-up"></i></button></a>
+        </div>
+      </td>
     </tr>
     {%endfor%}
   </table>
@@ -41,34 +47,6 @@
   <div id="transactions-add-navigation-panel">
     <a href="transaction-add"><button>Add transaction</button></a>
   </div>
-
-  <label>Assets pie chart:</label>
-  <div id="pie-chart-container" style="width: 400px; height: 400px;">
-    <canvas id="pie-chart" width="100" height="100"></canvas>
-  </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-<script>
-  // Sample data
-  var labels = {{ pieChartLabels | tojson }} ;
-  var data = {{ pieChartValues | tojson }} ;
-  
-  Chart.defaults.backgroundColor = '#9BD0F5';
-  Chart.defaults.borderColor = '#36A2EB';
-  Chart.defaults.color = '#FFFFFF';
-
-  var ctx = document.getElementById('pie-chart').getContext('2d');
-  var pieChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: data,
-      }]
-    },
-    options: {}
-  });
-</script>
 {% endblock %}

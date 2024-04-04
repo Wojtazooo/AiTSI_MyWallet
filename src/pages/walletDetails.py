@@ -11,7 +11,6 @@ WalletDetailsBlueprint = Blueprint('walletDetails', __name__, template_folder=TE
 def WalletDetails():
     walletPositions = GetWalletPositions()
     walletSummary = GetWalletSummary()
-    print(walletPositions);
 
     pieChartLabels = [position.assetName for position in walletPositions]
     pieChartValues = [position.currentAssetWorth * 100 / walletSummary.totalWalletValue for position in walletPositions]

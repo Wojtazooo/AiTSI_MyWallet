@@ -14,10 +14,7 @@ def TranactionsPage():
     if request.method == 'POST':
         json = request.get_json();
 
-        print(f"[transactions/add] json: {json}");
-
         timestampValue = datetime.strptime(json['timestamp'], '%Y-%m-%d')
-        print(timestampValue)
 
         transaction = WalletTransaction(
             assetId=json['assetId'], 
@@ -65,7 +62,5 @@ def TransactionAddPage():
 @TransactionsBlueprint.route('/transaction-edit/<transactionId>')
 def TransactionEditPage(transactionId):
     transactionToEdit = WalletTransaction.query.get(transactionId)
-    print(transactionToEdit)
-
     return render_template('pages/transaction-edit.html', assets=Asset.query.all(), transactionToEdit = transactionToEdit)
 

@@ -13,7 +13,7 @@
   // Sample data
   var labels = {{ timestamps | tojson }} ;
   var data = {{ values | tojson }} ;
-
+  var label = {{ asset.name | tojson }}
 
   var ctx = document.getElementById('price-chart').getContext('2d');
   var pieChart = new Chart(ctx, {
@@ -21,12 +21,11 @@
     data: {
       labels: labels,
       datasets: [{
+        label: label,
         data: data,
       }]
     },
-    options: {
-
-    }
+    options: {}
   });
 </script>
 {% endblock %}
