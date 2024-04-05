@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Flask App{% endblock %}</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -10,54 +10,54 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
-    />
+    >
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='index.css') }}"
-    />
+    >
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='wallet-details.css') }}"
-    />
+    >
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='transaction-form.css') }}"
-    />
+    >
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='transactions.css') }}"
-    />
+    >
     <link 
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" type='text/css'>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='asset-value.css') }}"
-    />
+    >
   </head>
   <body>
     <div id="navigation-panel">
       <div id="home-nav">
-        <a href="/"
-          ><button>
+        <a class="button" href="/"
+          >
             <img
               id="my-wallet-home-image"
               src="{{ url_for('static', filename='walletHome.png') }}"
-            /></button
-        ></a>
+              alt="My wallet home button"
+            ></a>
       </div>
 
       <div id="actions-nav">
         <div>
-          <a href="/wallet-details"><button>Wallet Details</button></a>
-          <a href="/transactions"><button>Transactions History</button></a>
+          <a class="button" href="/wallet-details">Wallet Details</a>
+          <a class="button" href="/transactions">Transactions History</a>
         </div>
       </div>
 
       <div id="profile-nav">
-        <a href="/user-profile"><button>User Profile</button></a>
+        <a class="button" href="/user-profile">User Profile</a>
       </div>
     </div>
 

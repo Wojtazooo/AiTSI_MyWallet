@@ -17,7 +17,7 @@ input:disabled {
   color: rgb(125, 125, 125);
 }
 
-button {
+a.button {
   background-color: #9a5722;
   color: #f2f2f2;
   padding: 5px 10px 5px 10px;
@@ -29,7 +29,27 @@ button {
   transition-duration: 0.4s;
 }
 
+a.button:link { 
+  text-decoration: none; 
+} 
+a.button:visited { 
+  text-decoration: none; 
+} 
+a.button:hover { 
+  text-decoration: none; 
+} 
+a.button:active { 
+  text-decoration: none; 
+}
+
+
+/* to remove? */
 button:hover {
+  border: 1px white solid;
+  box-shadow: 0px 0px 5px 0.1px #9a5722;
+}
+
+a:hover {
   border: 1px white solid;
   box-shadow: 0px 0px 5px 0.1px #9a5722;
 }
@@ -104,7 +124,7 @@ th {
       padding: 1rem;
     }
 
-    button {
+    button, a.button {
       border: 0px;
       background-color: rgb(56, 56, 56);
       padding: 0px;
