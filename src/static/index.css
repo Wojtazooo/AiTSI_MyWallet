@@ -17,7 +17,7 @@ input:disabled {
   color: rgb(125, 125, 125);
 }
 
-a.button {
+button, a.button {
   background-color: #9a5722;
   color: #f2f2f2;
   padding: 5px 10px 5px 10px;
@@ -82,9 +82,9 @@ th {
   align-items: center;
   justify-content: center;
 
-  button {
+  a.button, button {
     background-color: rgb(40, 40, 40);
-    margin: 0px;
+    margin: 0px 5px 0px 0px;
     padding: 0px 5px 0px 5px;
     border: 0px;
 

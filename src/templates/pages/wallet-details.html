@@ -5,7 +5,7 @@
   {% elif value < 0 %}
   <td class="loss">{{ FormatDecimal(value) }}{{suffix}}</td>
   {% else %}
-  <td class="neutral">{{ FormatDecimal(value) }}{{suffix}}</span>
+  <td class="neutral">{{ FormatDecimal(value) }}{{suffix}}
 {% endif %} {% endmacro %}
 
 <div id="wallet-possitions">
@@ -37,7 +37,7 @@
       <td>{{ FormatDecimal(position.assetAverageBuyPrice)}} zł</td>
       <td>
         <div class="table-row-option">
-          <a href="asset-value/{{ position.assetId }}"><button><label>Check price</label><i class="fa fa-arrow-trend-up"></i></button></a>
+          <a class="button" href="asset-value/{{ position.assetId }}"><span>Check price</span><i class="fa fa-arrow-trend-up"></i></a>
         </div>
       </td>
     </tr>
@@ -45,7 +45,7 @@
   </table>
 
   <div id="transactions-add-navigation-panel">
-    <a href="transaction-add"><button>Add transaction</button></a>
+    <a class="button" href="transaction-add">Add transaction</a>
   </div>
 </div>
 

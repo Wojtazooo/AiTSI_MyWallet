@@ -21,44 +21,44 @@
     <div class="form-row">
       <label>Date:</label>
       <div class="value-column">
-        <input id="timestamp-input" type="text" value="{{ transactionToEdit.timestamp }}" autocomplete="off" />
+        <input id="timestamp-input" type="text" value="{{ transactionToEdit.timestamp }}" autocomplete="off">
       </div>
     </div>
     <div class="form-row">
       <label>Count:</label>
       <div class="value-column">
-        <input id="count-input" type="number" value="{{ transactionToEdit.count }}" />
+        <input id="count-input" type="number" value="{{ transactionToEdit.count }}">
       </div>
     </div>
     <div class="form-row">
       <label>Price:</label>
       <div class="value-column">
         <button type="button" id="find-price-button"><i class="fa fa-magnifying-glass-dollar"></i></button>
-        <input id="price-input" type="number" value="{{ transactionToEdit.price }}" step="0.01" />
+        <input id="price-input" type="number" value="{{ transactionToEdit.price }}" step="0.01">
         <label>zł</label>
       </div>
     </div>
     <div class="form-row">
       <label>Fees:</label>
       <div class="value-column">
-        <input id="fees-input" type="number" value="{{ transactionToEdit.fees }}" step="0.01" />
+        <input id="fees-input" type="number" value="{{ transactionToEdit.fees }}" step="0.01">
         <label>zł</label>
       </div>
     </div>
 
-    <hr class="form-row" />
+    <hr class="form-row">
 
     <div class="form-row">
       <label>Total assets price:</label>
       <div class="value-column">
-        <input id="total-price-input" type="text" value="0.00" disabled="true" />
+        <input id="total-price-input" type="text" value="0.00" disabled>
         <label>zł</label>
       </div>
     </div>
     <div class="form-row">
       <label>Total price with fees:</label>
       <div class="value-column">
-        <input id="total-price-with-fees-input" type="text" value="0.00" disabled="true" />
+        <input id="total-price-with-fees-input" type="text" value="0.00" disabled>
         <label>zł</label>
       </div>
     </div>
@@ -66,7 +66,7 @@
     <button type="submit">Edit transaction</button>
   </form>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
   <script>
     $(document).ready(function () {

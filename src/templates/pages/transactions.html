@@ -21,8 +21,8 @@
           <td>{{ transaction.fees }} zł</td>
           <td>
             <div class="table-row-option">
-              <a href="transaction-edit/{{ transaction.id }}"><button><label>Edit</label><i class="fa fa-pencil"></i></button></a>
-              <button class="delete-button" data-item-id="{{ transaction.id }}"><label>Delete</label><i class="fa fa-trash"></i></button>
+              <a class="button" href="transaction-edit/{{ transaction.id }}"><span>Edit</span><i class="fa fa-pencil"></i></a>
+              <button class="delete-button" data-item-id="{{ transaction.id }}"><span>Delete</span><i class="fa fa-trash"></i></button>
             </div>
           </td>
         </tr>
@@ -30,7 +30,7 @@
     </table>
 
     <div id="transactions-add-navigation-panel">
-      <a href="transaction-add"><button>Add transaction</button></a>
+      <a class="button" href="/transaction-add">Add transaction</a>
     </div>
   </div>
 
