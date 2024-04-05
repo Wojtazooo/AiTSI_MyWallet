@@ -199,14 +199,11 @@ th {
   max-width: 800px;
   margin: 0 auto;
 
-  .flask-img {
+  .sql-img, .jquery-img, .flask-img {
     max-height: 100px;
     filter: invert(1);
-  }
-
-  .sql-img {
-    max-height: 100px;
-    filter: invert(1);
+    display: block;
+    margin: 0 auto;
   }
 
   h1 {
